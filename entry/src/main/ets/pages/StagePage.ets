@@ -40,7 +40,7 @@ export struct StagePage {
 
 
       Row(){
-        Button('导出 Tokens').onClick(()=> this.palette.exportTokens())
+        Button('导出 Tokens').onClick(()=> this.palette.exportTokens(getContext(this)))
       }.justifyContent(FlexAlign.End).padding(12)
     }
     .width('100%').height('100%')

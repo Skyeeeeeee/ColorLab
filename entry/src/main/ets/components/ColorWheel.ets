@@ -3,7 +3,7 @@ import { HSL } from '../store/PaletteStore'
 
 @Component
 export struct ColorWheel {
-  size0: string | number = '100%'
+  size: string | number = '100%'
   value: HSL ={ h: 200, s: 0.6, l: 0.55 }
   onChange?: (h:number,s:number,l:number)=>void
 
