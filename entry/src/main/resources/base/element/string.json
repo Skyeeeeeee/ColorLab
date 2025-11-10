@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "HarmonyColorLab Entry Module"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Entry Ability"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "调色工具"
+    }
+  ]
+}
