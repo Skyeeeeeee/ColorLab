@@ -6,6 +6,12 @@ import { StagePage } from './StagePage';
 @Component
 struct AppRoot {
   private store: PaletteStore = new PaletteStore();
+  @BuilderParam content?: () => void
+
+    if (!AppStorage.has('paletteStore')) {
+    AppStorage.setOrCreate('paletteStore', this.store)
+  }
+  this.content && this.content()
   build() {
     PaletteProvider({ store: this.store }) {
       Navigation() {
