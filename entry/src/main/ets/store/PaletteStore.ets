@@ -26,14 +26,14 @@ export class PaletteStore {
   setGradientStops(stops:GradStop[]){ this.gradientStops = stops }
 
 
-  exportTokens(){
+  exportTokens(ctx: common.UIAbilityContext){
     const tokens = {
       'color-primary': this.currentHEX,
       'gradient-1-start': this.gradientStops[0]?.hex ?? this.currentHEX,
       'gradient-1-end': this.gradientStops[this.gradientStops.length-1]?.hex ?? this.currentHEX
     }
     const css = toCSSVars(tokens)
-    fileSaveText('tokens.css', css)
+    fileSaveText(ctx, 'tokens.css', css)
   }
 }
 
@@ -78,9 +78,8 @@ function toCSSVars(tokens: Record<string,string>): string {
 }
 
 
-function fileSaveText(name:string, content:string){
+function fileSaveText(ctx: common.UIAbilityContext, name:string, content:string){
   try {
-    const ctx = getContext(this) as common.UIAbilityContext
     const dir = ctx.filesDir
     const path = dir + '/' + name
     const fd = fs.openSync(path, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE)
